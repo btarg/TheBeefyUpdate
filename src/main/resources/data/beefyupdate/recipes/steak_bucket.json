@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ccc",
+    "cBc",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:cooked_beef"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    }
+  },
+  "result": {
+    "item": "beefyupdate:steak_bucket",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "#C#",
+    " # "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:cooked_beef"
+    },
+    "C": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "beefyupdate:furnace_beef",
+    "count": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " g ",
+    "gCg",
+    " g "
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gunpowder"
+    },
+    "C": {
+      "item": "minecraft:cooked_beef"
+    }
+  },
+  "result": {
+    "item": "beefyupdate:tnt_beef",
+    "count": 1
+  }
+}

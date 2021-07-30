@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " r ",
+    "rCr",
+    " r "
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "C": {
+      "item": "minecraft:cooked_beef"
+    }
+  },
+  "result": {
+    "item": "beefyupdate:redstone_beef",
+    "count": 1
+  }
+}
