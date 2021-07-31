@@ -43,7 +43,7 @@ public class ModItems {
             () -> new ExplosiveBeefItem(new Item.Properties().tab(Main.GROUP).food(ModFoods.TNT_BEEF)));
 
     public static final RegistryObject<Item> SPONGE_BEEF = ITEMS.register("sponge_beef",
-            () -> new SpongeBeefItem(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_BEEF)));
+            () -> new SpongeBeefItem(new Item.Properties().tab(Main.GROUP).food(Foods.APPLE)));
 
     public static final RegistryObject<Item> CRAFTING_BEEF = ITEMS.register("crafting_beef",
             () -> new CraftingBeefItem(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_BEEF)));

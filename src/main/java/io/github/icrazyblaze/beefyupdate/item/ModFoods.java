@@ -9,8 +9,7 @@ public class ModFoods {
 
     public static final FoodProperties ALWAYS_EAT_BEEF = new FoodProperties.Builder()
             .nutrition(8).saturationMod(0.8F)
-            .meat()
-            .alwaysEat().build();
+            .meat().alwaysEat().build();
 
     public static final FoodProperties RAINBOW_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.MOVEMENT_SPEED, 300, 2), 1.0F)
@@ -48,7 +47,7 @@ public class ModFoods {
             .nutrition(8).saturationMod(0.8f)
             .meat().build();
 
-    public static final FoodProperties GOLDEN_BEEF = (new FoodProperties.Builder()).nutrition(4).saturationMod(1.2F)
+    public static final FoodProperties GOLDEN_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.REGENERATION, 100, 1), 1.0F)
             .effect(() -> effect(MobEffects.ABSORPTION, 2400, 0), 1.0F)
             .nutrition(8).saturationMod(1.2f)
