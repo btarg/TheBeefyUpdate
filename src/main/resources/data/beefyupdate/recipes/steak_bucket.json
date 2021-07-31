@@ -1,18 +1,19 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "ccc",
-    "cBc",
-    "ccc"
-  ],
-  "key": {
-    "c": {
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
       "item": "minecraft:cooked_beef"
     },
-    "B": {
+    {
       "item": "minecraft:bucket"
+    },
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "item": "minecraft:cooked_beef"
     }
-  },
+  ],
   "result": {
     "item": "beefyupdate:steak_bucket",
     "count": 1

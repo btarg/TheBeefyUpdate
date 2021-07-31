@@ -17,10 +17,13 @@ public class MysteryBeefItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
 
-        MobEffectInstance effect = EffectInstanceHelper.getRandomEffect();
+        if (livingEntity instanceof ServerPlayer player) {
 
-        if (livingEntity instanceof ServerPlayer) {
-            livingEntity.addEffect(effect);
+            MobEffectInstance effect = EffectInstanceHelper.getRandomEffect();
+            
+            player.addEffect(effect);
+            player.getCooldowns().addCooldown(this, 40);
+
         }
         super.finishUsingItem(itemStack, level, livingEntity);
         return itemStack;
