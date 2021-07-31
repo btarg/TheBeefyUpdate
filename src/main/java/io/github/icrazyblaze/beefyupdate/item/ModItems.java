@@ -22,7 +22,7 @@ public class ModItems {
             () -> new CoalBeefItem(new Item.Properties().tab(Main.GROUP).food(ModFoods.COAL_BEEF)));
 
     public static final RegistryObject<Item> MYSTERY_BEEF = ITEMS.register("mystery_beef",
-            () -> new MysteryBeefItem(new Item.Properties().tab(Main.GROUP).food(ModFoods.ALWAYS_EAT_BEEF)));
+            () -> new MysteryBeefItem(new Item.Properties().tab(Main.GROUP).food(ModFoods.ALWAYS_EAT_BEEF).stacksTo(16)));
 
     public static final RegistryObject<Item> IRON_BEEF = ITEMS.register("iron_beef",
             () -> new Item(new Item.Properties().tab(Main.GROUP).food(ModFoods.IRON_BEEF)));
@@ -58,5 +58,5 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_BEEF)));
 
     public static final RegistryObject<Item> STEAK_BUCKET = ITEMS.register("steak_bucket",
-            () -> new SteakBucketItem(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_BEEF).stacksTo(1).durability(8)));
+            () -> new SteakBucketItem(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_MUTTON).stacksTo(1).durability(3)));
 }

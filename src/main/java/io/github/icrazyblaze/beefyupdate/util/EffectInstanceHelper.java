@@ -17,7 +17,7 @@ public class EffectInstanceHelper {
         MobEffect effect = MobEffect.byId(r);
 
         if (effect != null) {
-            return new MobEffectInstance(effect, rand.nextInt(100, 1200), rand.nextInt(1, 5));
+            return new MobEffectInstance(effect, rand.nextInt(100, 600), rand.nextInt(1, 5));
         }
         return new MobEffectInstance(MobEffects.REGENERATION, 100, 0);
 
