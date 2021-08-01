@@ -44,7 +44,7 @@ public class SteakBucketItem extends Item {
     @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
 
-        if (livingEntity instanceof ServerPlayer player && !level.isClientSide()) {
+        if (livingEntity instanceof ServerPlayer player && !level.isClientSide() && !player.isCreative()) {
 
             player.eat(level, itemStack);
             // Eating reduces the stack so we grow it here
@@ -52,10 +52,8 @@ public class SteakBucketItem extends Item {
 
             itemStack.hurtAndBreak(eatDamage, livingEntity, (entity) -> {
 
-                if (!player.isCreative()) {
-                    itemStack.shrink(1);
-                    player.getInventory().add(new ItemStack(Items.BUCKET));
-                }
+                itemStack.shrink(1);
+                player.getInventory().add(new ItemStack(Items.BUCKET));
 
             });
 
