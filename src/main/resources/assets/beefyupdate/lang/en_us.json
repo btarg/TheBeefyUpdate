@@ -10,6 +10,7 @@
   "item.beefyupdate.diamond_beef": "Diamond Steak",
   "item.beefyupdate.fiery_beef": "Fiery Steak",
   "item.beefyupdate.furnace_beef": "Furnace Steak",
+  "item.beefyupdate.glowstone_beef": "Glowstone Steak",
   "item.beefyupdate.golden_beef": "Golden Steak",
   "item.beefyupdate.iron_beef": "Iron Steak",
   "item.beefyupdate.missing_beef": "Programming MisSteak",
@@ -18,7 +19,7 @@
   "item.beefyupdate.redstone_beef": "Redstone Steak",
   "item.beefyupdate.sponge_beef": "Sponge Steak",
   "item.beefyupdate.steak_bucket": "Bucket of Steak",
-  "item.beefyupdate.tnt_beef": "TNT Steak",
+  "item.beefyupdate.tnt_beef": "Dynamite Steak",
   "itemGroup.beefyupdate_custom_blocks": "The Beefy Update: Blocks",
   "itemGroup.beefyupdate_custom_food": "The Beefy Update: Food"
 }

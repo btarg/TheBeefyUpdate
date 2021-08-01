@@ -57,6 +57,9 @@ public class ModItems {
     public static final RegistryObject<Item> REDSTONE_BEEF = ITEMS.register("redstone_beef",
             () -> new Item(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_BEEF)));
 
+    public static final RegistryObject<Item> GLOWSTONE_BEEF = ITEMS.register("glowstone_beef",
+            () -> new GlowstoneBeefItem(new Item.Properties().tab(Main.GROUP).food(ModFoods.GLOWSTONE_BEEF)));
+
     public static final RegistryObject<Item> STEAK_BUCKET = ITEMS.register("steak_bucket",
-            () -> new SteakBucketItem(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_MUTTON).stacksTo(1).durability(3)));
+            () -> new SteakBucketItem(new Item.Properties().tab(Main.GROUP).food(Foods.COOKED_MUTTON).stacksTo(1).durability(1200)));
 }

@@ -52,4 +52,10 @@ public class ModFoods {
             .effect(() -> effect(MobEffects.ABSORPTION, 2400, 0), 1.0F)
             .nutrition(8).saturationMod(1.2f)
             .meat().alwaysEat().build();
+
+    public static final FoodProperties GLOWSTONE_BEEF = new FoodProperties.Builder()
+            .effect(() -> effect(MobEffects.NIGHT_VISION, 900, 0), 1.0F)
+            .effect(() -> effect(MobEffects.GLOWING, 200, 0), 1.0F)
+            .nutrition(8).saturationMod(0.8f)
+            .meat().build();
 }
