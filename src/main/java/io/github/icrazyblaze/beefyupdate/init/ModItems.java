@@ -1,6 +1,7 @@
-package io.github.icrazyblaze.beefyupdate.item;
+package io.github.icrazyblaze.beefyupdate.init;
 
 import io.github.icrazyblaze.beefyupdate.Main;
+import io.github.icrazyblaze.beefyupdate.item.*;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.ChorusFruitItem;
 import net.minecraft.world.item.EnchantedGoldenAppleItem;

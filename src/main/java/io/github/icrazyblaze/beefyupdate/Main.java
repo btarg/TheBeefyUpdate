@@ -1,6 +1,6 @@
 package io.github.icrazyblaze.beefyupdate;
 
-import io.github.icrazyblaze.beefyupdate.item.ModItems;
+import io.github.icrazyblaze.beefyupdate.init.ModItems;
 import io.github.icrazyblaze.beefyupdate.network.PacketHandler;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;

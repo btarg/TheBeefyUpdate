@@ -1,4 +1,4 @@
-package io.github.icrazyblaze.beefyupdate.item;
+package io.github.icrazyblaze.beefyupdate.init;
 
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -20,9 +20,7 @@ public class ModFoods {
             .meat().alwaysEat().build();
 
     public static final FoodProperties COAL_BEEF = new FoodProperties.Builder()
-            .nutrition(4).saturationMod(0.3F)
-            .effect(() -> effect(MobEffects.POISON, 300, 0), 1.0F)
-            .effect(() -> effect(MobEffects.HUNGER, 300, 2), 0.3F)
+            .nutrition(6).saturationMod(0.3F)
             .meat().build();
 
     public static final FoodProperties IRON_BEEF = new FoodProperties.Builder()
