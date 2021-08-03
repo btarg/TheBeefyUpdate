@@ -17,7 +17,7 @@ import static io.github.icrazyblaze.beefyupdate.util.EffectInstanceHelper.effect
 
 public class GlowstoneBeefItem extends Item {
 
-    public static final int searchRange = 64;
+    public static final int searchRange = 48;
 
     public GlowstoneBeefItem(Properties properties) {
         super(properties);
@@ -28,10 +28,14 @@ public class GlowstoneBeefItem extends Item {
 
         if (livingEntity instanceof ServerPlayer player && !level.isClientSide()) {
 
-            List<Entity> entities = level.getEntities(player, player.getBoundingBox().expandTowards(searchRange, searchRange, searchRange));
+            List<Entity> entities = level.getEntities(player, player.getBoundingBox().inflate(searchRange));
 
             for (Entity e : entities) {
-                ((LivingEntity) e).addEffect(effect(MobEffects.GLOWING, 200, 0));
+                try {
+                    ((LivingEntity) e).addEffect(effect(MobEffects.GLOWING, 200, 0));
+                } catch (Exception ignored) {
+
+                }
             }
 
             level.playSound(null, player.blockPosition(), SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 1.0F, 1.0F);
