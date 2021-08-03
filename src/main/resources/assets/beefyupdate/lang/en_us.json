@@ -1,9 +1,11 @@
 {
   "advancements.beefyupdate.eat_rainbow_beef.description": "Eat the rarest type of Steak.",
   "advancements.beefyupdate.eat_rainbow_beef.title": "Rainmaker",
+  "entity.beefyupdate.beef_golem": "Steak Golem",
   "gui.beefyupdate.disconnect1": "You have eaten too much. Please try again later",
   "gui.beefyupdate.disconnect2": "Exception java.lang.IndexOutOfBoundsException: \nUnable to eat, stomach is full.",
   "gui.beefyupdate.disconnect3": "Appetite not found (404)",
+  "item.beefyupdate.beef_golem_spawn_egg": "Steak Golem Spawn Egg",
   "item.beefyupdate.chorus_beef": "Chorus Steak",
   "item.beefyupdate.coal_beef": "Coal Steak",
   "item.beefyupdate.crafting_beef": "Crafting Steak",
@@ -20,6 +22,7 @@
   "item.beefyupdate.sponge_beef": "Sponge Steak",
   "item.beefyupdate.steak_bucket": "Bucket of Steak",
   "item.beefyupdate.tnt_beef": "Dynamite Steak",
-  "itemGroup.beefyupdate_custom_blocks": "The Beefy Update: Blocks",
-  "itemGroup.beefyupdate_custom_food": "The Beefy Update: Food"
+  "itemGroup.beefyupdate.custom_blocks": "The Beefy Update: Blocks",
+  "itemGroup.beefyupdate.custom_food": "The Beefy Update: Food",
+  "itemGroup.beefyupdate.misc": "The Beefy Update: Miscellaneous"
 }
