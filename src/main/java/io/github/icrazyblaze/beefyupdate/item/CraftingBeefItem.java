@@ -7,7 +7,6 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.LivingEntity;
@@ -41,7 +40,6 @@ public class CraftingBeefItem extends Item {
         
         if (livingEntity instanceof ServerPlayer player && !level.isClientSide()) {
             NetworkHooks.openGui(player, getMenuProvider(level, player.blockPosition()));
-            player.awardStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
         }
         super.finishUsingItem(itemStack, level, livingEntity);
         return itemStack;
