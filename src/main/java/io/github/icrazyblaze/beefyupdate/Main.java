@@ -60,6 +60,7 @@ public class Main {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(bus);
 
+        // Here we need to register the Golem entity before the Spawn Egg item to prevent bugs
         ENTITIES.register(bus);
         ENTITIES.register("beef_golem", () -> BEEF_GOLEM);
 
