@@ -10,8 +10,6 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 
-import java.util.Map;
-
 public class SteakBucketItem extends Item {
 
     public static final int eatDamage = 400;
@@ -21,23 +19,14 @@ public class SteakBucketItem extends Item {
     }
 
     @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
 
-        Map<Enchantment, Integer> enchantmentMap = EnchantmentHelper.getEnchantments(book);
-        enchantmentMap.keySet().removeIf(entry -> (entry == Enchantments.UNBREAKING || entry == Enchantments.MENDING));
-
-        return enchantmentMap.size() == 0;
-
-    }
-
-    @Override
-    public void onUsingTick(ItemStack itemStack, LivingEntity player, int count) {
-
-        int nextDamage = itemStack.getDamageValue() + eatDamage;
-
-        if (nextDamage > itemStack.getMaxDamage()) {
-            player.stopUsingItem();
+        for (Enchantment e : EnchantmentHelper.getEnchantments(stack).keySet()) {
+            if (!e.isCompatibleWith(enchantment)) {
+                return false;
+            }
         }
+        return enchantment == Enchantments.UNBREAKING || enchantment == Enchantments.MENDING;
 
     }
 
@@ -46,9 +35,17 @@ public class SteakBucketItem extends Item {
 
         if (livingEntity instanceof ServerPlayer player && !level.isClientSide() && !player.isCreative()) {
 
-            player.eat(level, itemStack);
-            // Eating reduces the stack so we grow it here
-            itemStack.grow(1);
+            int nextDamage = itemStack.getDamageValue() + eatDamage;
+
+            // Don't allow the player to eat the steak bucket if there's not enough left
+            // If there isn't enough durability the player won't gain any nutrition from eating the bucket, but it will still "break"
+            if (nextDamage <= itemStack.getMaxDamage()) {
+
+                player.eat(level, itemStack);
+                // Eating reduces the stack so we grow it here
+                itemStack.grow(1);
+
+            }
 
             itemStack.hurtAndBreak(eatDamage, livingEntity, (entity) -> {
 

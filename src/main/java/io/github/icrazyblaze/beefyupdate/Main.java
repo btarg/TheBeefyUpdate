@@ -2,7 +2,6 @@ package io.github.icrazyblaze.beefyupdate;
 
 import io.github.icrazyblaze.beefyupdate.entity.BeefGolemEntity;
 import io.github.icrazyblaze.beefyupdate.init.ModItems;
-import io.github.icrazyblaze.beefyupdate.network.PacketHandler;
 import io.github.icrazyblaze.beefyupdate.util.ForgeEventSubscribers;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -37,17 +36,6 @@ public class Main {
             return ModItems.RAINBOW_BEEF.get().getDefaultInstance();
         }
     };
-    public static final CreativeModeTab GROUP_MISC = new CreativeModeTab(MOD_ID + ".misc") {
-        @Override
-        public ItemStack makeIcon() {
-            return ModItems.MYSTERY_BEEF.get().getDefaultInstance();
-        }
-
-        @Override
-        public boolean isTopRow() {
-            return false;
-        }
-    };
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES,
             Main.MOD_ID);
@@ -65,11 +53,9 @@ public class Main {
         ENTITIES.register("beef_golem", () -> BEEF_GOLEM);
 
         ModItems.ITEMS.register("beef_golem_spawn_egg", () ->
-                new SpawnEggItem(BEEF_GOLEM, 0x5d3829, 0x30180f, new Item.Properties().tab(Main.GROUP_MISC)));
+                new SpawnEggItem(BEEF_GOLEM, 0x5d3829, 0x30180f, new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
 
         bus.register(ForgeEventSubscribers.class);
-
-        PacketHandler.registerMessages();
 
     }
 

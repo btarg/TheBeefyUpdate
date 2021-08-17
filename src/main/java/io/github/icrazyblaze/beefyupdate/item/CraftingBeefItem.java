@@ -19,7 +19,7 @@ import net.minecraftforge.fmllegacy.network.NetworkHooks;
 
 public class CraftingBeefItem extends Item {
 
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.crafting");
+    private static final Component CONTAINER_TITLE = new TranslatableComponent("item.beefyupdate.crafting_beef");
 
     public CraftingBeefItem(Properties properties) {
         super(properties);
@@ -37,7 +37,7 @@ public class CraftingBeefItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
-        
+
         if (livingEntity instanceof ServerPlayer player && !level.isClientSide()) {
             NetworkHooks.openGui(player, getMenuProvider(level, player.blockPosition()));
         }
