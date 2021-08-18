@@ -39,7 +39,7 @@ public class GlowstoneBeefItem extends Item {
             }
 
             level.playSound(null, player.blockPosition(), SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 1.0F, 1.0F);
-            player.getCooldowns().addCooldown(this, 20);
+            player.getCooldowns().addCooldown(this, 40);
 
         }
         super.finishUsingItem(itemStack, level, livingEntity);
