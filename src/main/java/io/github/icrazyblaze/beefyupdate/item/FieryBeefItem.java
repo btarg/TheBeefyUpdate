@@ -52,7 +52,7 @@ public class FieryBeefItem extends Item {
             ent.moveTo(player.getX(), player.getY(0.5), player.getZ(), 0, 0);
 
             level.addFreshEntity(ent);
-            player.getCooldowns().addCooldown(this, 40);
+            player.getCooldowns().addCooldown(this, 20);
 
         }
 

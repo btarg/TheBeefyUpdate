@@ -1,9 +1,11 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
+import com.google.common.primitives.Ints;
 import io.github.icrazyblaze.beefyupdate.Main;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -48,7 +50,7 @@ public class FurnaceBeefItem extends Item {
 
                     if (recipe.isPresent()) {
 
-                        // Shrink the stacks if we have the same amount of fuel and items (1:1)
+                        // Shrink the stacks if we have enough fuel for the items
                         // If we don't have enough of either, break the loop and do nothing (just eat the steak)
                         if (itemStack.getCount() >= stackRand) {
                             fuelStack.shrink(stackRand);
@@ -61,13 +63,17 @@ public class FurnaceBeefItem extends Item {
                         player.getInventory().add(new ItemStack(recipe.get().getResultItem().getItem(), stackRand));
                         player.giveExperienceLevels((int) recipe.get().getExperience());
 
+                        level.playSound(null, player.blockPosition(), SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+                        int cooldownTime = Ints.constrainToRange(10 * stackRand, 60, 300);
+
+                        player.getCooldowns().addCooldown(this, cooldownTime);
                         break;
 
                     }
                 }
             }
 
-            player.getCooldowns().addCooldown(this, 40);
         }
         super.finishUsingItem(thisItemStack, level, livingEntity);
         return thisItemStack;
