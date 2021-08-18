@@ -28,7 +28,7 @@ public class ModItems {
     public static final RegistryObject<Item> CHORUS_BEEF = ITEMS.register("chorus_beef",
             () -> new ChorusFruitItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.ALWAYS_EAT_BEEF)));
     public static final RegistryObject<Item> GOLDEN_BEEF = ITEMS.register("golden_beef",
-            () -> new Item(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.GOLDEN_BEEF)));
+            () -> new Item(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.GOLDEN_BEEF).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> FIERY_BEEF = ITEMS.register("fiery_beef",
             () -> new FieryBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.FIERY_BEEF)));
     public static final RegistryObject<Item> TNT_BEEF = ITEMS.register("tnt_beef",

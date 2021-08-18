@@ -17,7 +17,7 @@ import static io.github.icrazyblaze.beefyupdate.util.EffectInstanceHelper.effect
 
 public class GlowstoneBeefItem extends Item {
 
-    public static final int searchRange = 48;
+    public static final int searchRange = 32;
 
     public GlowstoneBeefItem(Properties properties) {
         super(properties);
