@@ -40,7 +40,7 @@ public class ModItems {
     public static final RegistryObject<Item> FURNACE_BEEF = ITEMS.register("furnace_beef",
             () -> new FurnaceBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF)));
     public static final RegistryObject<Item> ANTIBEEF = ITEMS.register("antibeef",
-            () -> new MissingBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF)));
+            () -> new MissingBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> REDSTONE_BEEF = ITEMS.register("redstone_beef",
             () -> new RedstoneBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.ALWAYS_EAT_BEEF)));
     public static final RegistryObject<Item> GLOWSTONE_BEEF = ITEMS.register("glowstone_beef",
