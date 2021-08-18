@@ -3,7 +3,10 @@ package io.github.icrazyblaze.beefyupdate.init;
 import io.github.icrazyblaze.beefyupdate.Main;
 import io.github.icrazyblaze.beefyupdate.item.*;
 import net.minecraft.world.food.Foods;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ChorusFruitItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SpawnEggItem;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -13,7 +16,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
             Main.MOD_ID);
     public static final RegistryObject<Item> RAINBOW_BEEF = ITEMS.register("rainbow_beef",
-            () -> new EnchantedGoldenAppleItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.RAINBOW_BEEF).rarity(Rarity.EPIC)));
+            () -> new ItemWithDescription(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.RAINBOW_BEEF).rarity(Rarity.EPIC), "item.beefyupdate.rainbow_beef.description", true));
     public static final RegistryObject<Item> COAL_BEEF = ITEMS.register("coal_beef",
             () -> new CoalBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.COAL_BEEF)));
     public static final RegistryObject<Item> MYSTERY_BEEF = ITEMS.register("mystery_beef",
@@ -36,10 +39,10 @@ public class ModItems {
             () -> new CraftingBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF)));
     public static final RegistryObject<Item> FURNACE_BEEF = ITEMS.register("furnace_beef",
             () -> new FurnaceBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF)));
-    public static final RegistryObject<Item> MISSING_BEEF = ITEMS.register("missing_beef",
+    public static final RegistryObject<Item> ANTIBEEF = ITEMS.register("antibeef",
             () -> new MissingBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF)));
     public static final RegistryObject<Item> REDSTONE_BEEF = ITEMS.register("redstone_beef",
-            () -> new Item(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_BEEF)));
+            () -> new RedstoneBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.ALWAYS_EAT_BEEF)));
     public static final RegistryObject<Item> GLOWSTONE_BEEF = ITEMS.register("glowstone_beef",
             () -> new GlowstoneBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.GLOWSTONE_BEEF)));
     public static final RegistryObject<Item> STEAK_BUCKET = ITEMS.register("steak_bucket",

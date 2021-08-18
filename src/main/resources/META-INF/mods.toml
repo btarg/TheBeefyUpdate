@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[37,)"
 license = "GNU LGPLv3"
-issueTrackerURL = "http://github.com/iCrazyBlaze/TheBeefyUpdate"
+issueTrackerURL = "http://github.com/iCrazyBlaze/TheBeefyUpdate/issues"
 
 [[mods]]
 modId = "beefyupdate"
@@ -22,7 +22,7 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.beefyupdate]]
-modId="minecraft"
-mandatory=true
-versionRange="[1.17,1.18)"
-side="BOTH"
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.17,1.18)"
+side = "BOTH"

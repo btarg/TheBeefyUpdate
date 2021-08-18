@@ -1,0 +1,20 @@
+{
+  "type": "beefyupdate:cow",
+  "conditions": [
+    {
+      "condition": "minecraft:damage_source_properties",
+      "predicate": {
+        "direct_entity": {
+          "type": "minecraft:falling_block"
+        }
+      }
+    },
+    {
+      "condition": "minecraft:entity_properties",
+      "predicate": {
+        "type": "minecraft:cow"
+      },
+      "entity": "this"
+    }
+  ]
+}

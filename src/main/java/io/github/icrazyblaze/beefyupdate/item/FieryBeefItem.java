@@ -22,7 +22,12 @@ public class FieryBeefItem extends Item {
 
     @Override
     public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType) {
-        return 800;
+        return 1200;
+    }
+
+    @Override
+    public boolean isFireResistant() {
+        return true;
     }
 
     @Override

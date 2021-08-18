@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " # ",
+    "M#M",
     "#E#",
-    " # "
+    "M#M"
   ],
   "key": {
     "#": {
@@ -11,6 +11,9 @@
     },
     "E": {
       "item": "minecraft:enchanted_golden_apple"
+    },
+    "M": {
+      "item": "beefyupdate:antibeef"
     }
   },
   "result": {
