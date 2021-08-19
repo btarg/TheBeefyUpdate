@@ -2,6 +2,8 @@ package io.github.icrazyblaze.beefyupdate.item;
 
 import com.google.common.primitives.Ints;
 import io.github.icrazyblaze.beefyupdate.Main;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -10,11 +12,14 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeHooks;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Optional;
 
 public class FurnaceBeefItem extends Item {
@@ -26,6 +31,11 @@ public class FurnaceBeefItem extends Item {
     @Override
     public SoundEvent getEatingSound() {
         return SoundEvents.STONE_BREAK;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        components.add(new TranslatableComponent("item.beefyupdate.furnace_beef.description"));
     }
 
     @Override

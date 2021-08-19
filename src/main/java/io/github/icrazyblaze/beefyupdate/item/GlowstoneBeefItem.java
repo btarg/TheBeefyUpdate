@@ -1,5 +1,7 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -9,8 +11,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 import static io.github.icrazyblaze.beefyupdate.util.EffectInstanceHelper.effect;
@@ -21,6 +25,11 @@ public class GlowstoneBeefItem extends Item {
 
     public GlowstoneBeefItem(Properties properties) {
         super(properties);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
+        components.add(new TranslatableComponent("item.beefyupdate.glowstone_beef.description"));
     }
 
     @Override

@@ -4,9 +4,7 @@
     {
       "condition": "minecraft:damage_source_properties",
       "predicate": {
-        "direct_entity": {
-          "type": "minecraft:falling_block"
-        }
+        "is_lightning": true
       }
     },
     {
