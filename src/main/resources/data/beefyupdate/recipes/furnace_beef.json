@@ -1,16 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " # ",
-    "#C#",
-    " # "
+    "iii",
+    "iCi",
+    "SSS"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:cooked_beef"
+    "i": {
+      "item": "minecraft:iron_ingot"
     },
     "C": {
-      "item": "minecraft:furnace"
+      "item": "minecraft:cooked_beef"
+    },
+    "S": {
+      "item": "minecraft:smooth_stone"
     }
   },
   "result": {
