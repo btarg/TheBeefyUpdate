@@ -30,7 +30,7 @@ public class GlowstoneBeefItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.glowstone_beef.description").withStyle(ChatFormatting.DARK_PURPLE);
+        components.add(new TranslatableComponent("item.beefyupdate.glowstone_beef.description").withStyle(ChatFormatting.DARK_PURPLE));
     }
 
     @Override
