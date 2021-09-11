@@ -12,7 +12,7 @@ apply plugin: "net.minecraftforge.gradle"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(16)
 
-archivesBaseName = mod_id
+archivesBaseName = "${mod_id}-${mc_version}-${mod_version}"
 
 repositories {
 
@@ -42,10 +42,10 @@ repositories {
     jar {
         manifest {
             attributes([
-                    "Specification-Title"     : "${archivesBaseName}-${mc_version}-${mod_version}",
+                    "Specification-Title"     : "${archivesBaseName}",
                     "Specification-Vendor"    : "${author}",
                     "Specification-Version"   : "${mod_version}",
-                    "Implementation-Title"    : "${archivesBaseName}-${mc_version}-${mod_version}",
+                    "Implementation-Title"    : "${archivesBaseName}",
                     "Implementation-Version"  : "${mod_version}",
                     "Implementation-Vendor"   : "${author}",
                     "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
