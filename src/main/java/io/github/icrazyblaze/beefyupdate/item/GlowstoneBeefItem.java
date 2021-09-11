@@ -1,5 +1,6 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
@@ -29,7 +30,7 @@ public class GlowstoneBeefItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.glowstone_beef.description"));
+        components.add(new TranslatableComponent("item.beefyupdate.glowstone_beef.description").withStyle(ChatFormatting.DARK_PURPLE);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
 import com.google.common.primitives.Ints;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
@@ -27,7 +28,7 @@ public class RedstoneBeefItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.redstone_beef.description"));
+        components.add(new TranslatableComponent("item.beefyupdate.redstone_beef.description").withStyle(ChatFormatting.DARK_PURPLE));
     }
 
     @Override

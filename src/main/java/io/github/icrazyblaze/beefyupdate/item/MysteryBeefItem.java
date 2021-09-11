@@ -1,6 +1,7 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
 import io.github.icrazyblaze.beefyupdate.util.EffectInstanceHelper;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
@@ -22,7 +23,7 @@ public class MysteryBeefItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.mystery_beef.description"));
+        components.add(new TranslatableComponent("item.beefyupdate.mystery_beef.description").withStyle(ChatFormatting.DARK_PURPLE));
     }
 
     @Override

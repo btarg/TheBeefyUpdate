@@ -2,6 +2,7 @@ package io.github.icrazyblaze.beefyupdate.item;
 
 import com.google.common.primitives.Ints;
 import io.github.icrazyblaze.beefyupdate.Main;
+import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
@@ -35,7 +36,7 @@ public class FurnaceBeefItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.furnace_beef.description"));
+        components.add(new TranslatableComponent("item.beefyupdate.furnace_beef.description").withStyle(ChatFormatting.DARK_PURPLE));
     }
 
     @Override
