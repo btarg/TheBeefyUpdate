@@ -29,7 +29,5 @@
   "item.beefyupdate.sponge_beef": "Sponge Steak",
   "item.beefyupdate.steak_bucket": "Bucket of Steak",
   "item.beefyupdate.tnt_beef": "Dynamite Steak",
-  "itemGroup.beefyupdate.custom_blocks": "The Beefy Update: Blocks",
-  "itemGroup.beefyupdate.custom_food": "The Beefy Update: Foodstuffs",
-  "itemGroup.beefyupdate.misc": "The Beefy Update: Miscellaneous"
+  "itemGroup.beefyupdate.custom_food": "The Beefy Update: Foodstuffs"
 }

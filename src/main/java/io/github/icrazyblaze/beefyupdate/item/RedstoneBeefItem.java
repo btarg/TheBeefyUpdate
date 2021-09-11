@@ -42,10 +42,11 @@ public class RedstoneBeefItem extends Item {
                 MobEffectInstance e = (MobEffectInstance) effects.toArray()[i];
 
                 int newDuration = e.getDuration();
+                int maxDuration = 12000;
 
                 // Clamp the duration to a max of 10 minutes
-                if (newDuration < 12000) {
-                    newDuration = Ints.constrainToRange((int) (e.getDuration() * 1.2), 1, 12000);
+                if (newDuration < maxDuration) {
+                    newDuration = Ints.constrainToRange((int) (e.getDuration() * 1.2), 1, maxDuration);
                 }
 
                 // Get the same effect but with longer duration

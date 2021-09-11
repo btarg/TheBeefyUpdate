@@ -27,23 +27,23 @@ public class ModFoods {
             .effect(() -> effect(MobEffects.DAMAGE_RESISTANCE, 600, 1), 1.0F)
             .effect(() -> effect(MobEffects.MOVEMENT_SLOWDOWN, 600, 0), 1.0F)
             .nutrition(8).saturationMod(0.8f)
-            .meat().build();
+            .meat().alwaysEat().build();
 
     public static final FoodProperties DIAMOND_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.DAMAGE_RESISTANCE, 600, 2), 1.0F)
             .effect(() -> effect(MobEffects.MOVEMENT_SLOWDOWN, 600, 0), 1.0F)
             .nutrition(8).saturationMod(0.8f)
-            .meat().build();
+            .meat().alwaysEat().build();
 
     public static final FoodProperties FIERY_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.FIRE_RESISTANCE, 1200, 0), 1.0F)
             .nutrition(8).saturationMod(0.8f)
-            .meat().build();
+            .meat().alwaysEat().build();
 
     public static final FoodProperties TNT_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.DAMAGE_RESISTANCE, 20, 5), 1.0F)
             .nutrition(8).saturationMod(0.8f)
-            .meat().build();
+            .meat().alwaysEat().build();
 
     public static final FoodProperties GOLDEN_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.REGENERATION, 100, 1), 1.0F)
@@ -54,6 +54,6 @@ public class ModFoods {
     public static final FoodProperties GLOWSTONE_BEEF = new FoodProperties.Builder()
             .effect(() -> effect(MobEffects.NIGHT_VISION, 900, 0), 1.0F)
             .effect(() -> effect(MobEffects.GLOWING, 200, 0), 1.0F)
-            .nutrition(8).saturationMod(0.8f)
-            .meat().build();
+            .nutrition(6).saturationMod(0.8f)
+            .meat().alwaysEat().build();
 }
