@@ -1,35 +1,35 @@
 package io.github.icrazyblaze.beefyupdate.entity;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.NeutralMob;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.IAngerable;
+import net.minecraft.entity.MobEntity;
+import net.minecraft.entity.ai.attributes.AttributeModifierMap;
+import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.passive.IronGolemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.world.IWorldReader;
+import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
 
-public class BeefGolemEntity extends IronGolem implements NeutralMob {
+public class BeefGolemEntity extends IronGolemEntity implements IAngerable {
 
-    public BeefGolemEntity(EntityType<? extends IronGolem> entityType, Level level) {
-        super(entityType, level);
+    public BeefGolemEntity(EntityType<? extends IronGolemEntity> entityType, World world) {
+        super(entityType, world);
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes()
+    public static AttributeModifierMap.MutableAttribute createAttributes() {
+        return MobEntity.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 30.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3D)
                 .add(Attributes.KNOCKBACK_RESISTANCE, 0.45D)
@@ -47,13 +47,13 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    protected int decreaseAirSupply(int p_28882_) {
-        return super.decreaseAirSupply(p_28882_);
+    protected int decreaseAirSupply(int pAir) {
+        return super.decreaseAirSupply(pAir);
     }
 
     @Override
-    protected void doPush(Entity p_28839_) {
-        super.doPush(p_28839_);
+    protected void doPush(Entity pEntity) {
+        super.doPush(pEntity);
     }
 
     @Override
@@ -62,18 +62,18 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    public boolean canAttackType(EntityType<?> p_28851_) {
-        return super.canAttackType(p_28851_);
+    public boolean canAttackType(EntityType<?> pType) {
+        return super.canAttackType(pType);
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag p_28867_) {
-        super.addAdditionalSaveData(p_28867_);
+    public void addAdditionalSaveData(CompoundNBT pCompound) {
+        super.addAdditionalSaveData(pCompound);
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag p_28857_) {
-        super.readAdditionalSaveData(p_28857_);
+    public void readAdditionalSaveData(CompoundNBT pCompound) {
+        super.readAdditionalSaveData(pCompound);
     }
 
     @Override
@@ -87,8 +87,8 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    public void setRemainingPersistentAngerTime(int p_28859_) {
-        super.setRemainingPersistentAngerTime(p_28859_);
+    public void setRemainingPersistentAngerTime(int pTime) {
+        super.setRemainingPersistentAngerTime(pTime);
     }
 
     @Override
@@ -97,28 +97,28 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    public void setPersistentAngerTarget(@Nullable UUID p_28855_) {
-        super.setPersistentAngerTarget(p_28855_);
+    public void setPersistentAngerTarget(@Nullable UUID pTarget) {
+        super.setPersistentAngerTarget(pTarget);
     }
 
     @Override
-    public boolean doHurtTarget(Entity p_28837_) {
-        return super.doHurtTarget(p_28837_);
+    public boolean doHurtTarget(Entity pEntity) {
+        return super.doHurtTarget(pEntity);
     }
 
     @Override
-    public boolean hurt(DamageSource p_28848_, float p_28849_) {
-        return super.hurt(p_28848_, p_28849_);
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        return super.hurt(pSource, pAmount);
     }
 
     @Override
-    public Crackiness getCrackiness() {
+    public IronGolemEntity.Cracks getCrackiness() {
         return super.getCrackiness();
     }
 
     @Override
-    public void handleEntityEvent(byte p_28844_) {
-        super.handleEntityEvent(p_28844_);
+    public void handleEntityEvent(byte pId) {
+        super.handleEntityEvent(pId);
     }
 
     @Override
@@ -127,13 +127,13 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    public void offerFlower(boolean p_28886_) {
-        super.offerFlower(p_28886_);
+    public void offerFlower(boolean pHoldingRose) {
+        super.offerFlower(pHoldingRose);
     }
 
     @Override
-    protected SoundEvent getHurtSound(DamageSource p_28872_) {
-        return super.getHurtSound(p_28872_);
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return super.getHurtSound(pDamageSource);
     }
 
     @Override
@@ -142,13 +142,13 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    protected InteractionResult mobInteract(Player p_28861_, InteractionHand p_28862_) {
-        return super.mobInteract(p_28861_, p_28862_);
+    protected ActionResultType mobInteract(PlayerEntity pPlayer, Hand pHand) {
+        return super.mobInteract(pPlayer, pHand);
     }
 
     @Override
-    protected void playStepSound(BlockPos p_28864_, BlockState p_28865_) {
-        super.playStepSound(p_28864_, p_28865_);
+    protected void playStepSound(BlockPos pPos, BlockState pBlock) {
+        super.playStepSound(pPos, pBlock);
     }
 
     @Override
@@ -162,22 +162,22 @@ public class BeefGolemEntity extends IronGolem implements NeutralMob {
     }
 
     @Override
-    public void setPlayerCreated(boolean p_28888_) {
-        super.setPlayerCreated(p_28888_);
+    public void setPlayerCreated(boolean pPlayerCreated) {
+        super.setPlayerCreated(pPlayerCreated);
     }
 
     @Override
-    public void die(DamageSource p_28846_) {
-        super.die(p_28846_);
+    public void die(DamageSource pCause) {
+        super.die(pCause);
     }
 
     @Override
-    public boolean checkSpawnObstruction(LevelReader p_28853_) {
-        return super.checkSpawnObstruction(p_28853_);
+    public boolean checkSpawnObstruction(IWorldReader pLevel) {
+        return super.checkSpawnObstruction(pLevel);
     }
 
     @Override
-    public Vec3 getLeashOffset() {
+    public Vector3d getLeashOffset() {
         return super.getLeashOffset();
     }
 

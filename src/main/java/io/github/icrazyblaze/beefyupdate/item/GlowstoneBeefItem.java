@@ -1,27 +1,27 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Effects;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
 import static io.github.icrazyblaze.beefyupdate.util.EffectInstanceHelper.effect;
 
 public class GlowstoneBeefItem extends Item {
-
     public static final int searchRange = 32;
 
     public GlowstoneBeefItem(Properties properties) {
@@ -29,35 +29,35 @@ public class GlowstoneBeefItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.glowstone_beef.description").withStyle(ChatFormatting.DARK_PURPLE));
+    public void appendHoverText(@Nonnull ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, @Nonnull ITooltipFlag pFlag) {
+        pTooltip.add(new TranslationTextComponent("item.beefyupdate.glowstone_beef.description").withStyle(TextFormatting.DARK_PURPLE));
     }
-
+    
+    @Nonnull
     @Override
-    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
-
-        if (livingEntity instanceof ServerPlayer player && !level.isClientSide()) {
-
-            List<Entity> entities = level.getEntities(player, player.getBoundingBox().inflate(searchRange));
+    public ItemStack finishUsingItem(@Nonnull ItemStack pStack, @Nonnull World pLevel, @Nonnull LivingEntity pEntityLiving) {
+        if (pEntityLiving instanceof ServerPlayerEntity && !pLevel.isClientSide()) {
+            ServerPlayerEntity player = (ServerPlayerEntity) pEntityLiving;
+            List<Entity> entities = pLevel.getEntities(player, player.getBoundingBox().inflate(searchRange));
 
             for (Entity e : entities) {
                 try {
-                    ((LivingEntity) e).addEffect(effect(MobEffects.GLOWING, 200, 0));
+                    ((LivingEntity) e).addEffect(effect(Effects.GLOWING, 200, 0));
                 } catch (Exception ignored) {
 
                 }
             }
 
-            level.playSound(null, player.blockPosition(), SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 1.0F, 1.0F);
+            pLevel.playSound(null, player.blockPosition(), SoundEvents.BELL_RESONATE, SoundCategory.BLOCKS, 1.0F, 1.0F);
             player.getCooldowns().addCooldown(this, 40);
-
         }
-        super.finishUsingItem(itemStack, level, livingEntity);
-        return itemStack;
+        super.finishUsingItem(pStack, pLevel, pEntityLiving);
+        return pStack;
     }
-
+    
+    @Nonnull
     @Override
     public SoundEvent getEatingSound() {
-        return SoundEvents.AMETHYST_BLOCK_STEP;
+        return SoundEvents.NOTE_BLOCK_CHIME;
     }
 }

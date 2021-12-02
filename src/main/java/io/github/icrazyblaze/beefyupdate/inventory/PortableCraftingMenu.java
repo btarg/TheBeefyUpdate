@@ -1,18 +1,18 @@
 package io.github.icrazyblaze.beefyupdate.inventory;
 
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.CraftingMenu;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.container.WorkbenchContainer;
+import net.minecraft.util.IWorldPosCallable;
 
-public class PortableCraftingMenu extends CraftingMenu {
+public class PortableCraftingMenu extends WorkbenchContainer {
 
-    public PortableCraftingMenu(int p_39353_, Inventory inventory, ContainerLevelAccess containerLevelAccess) {
-        super(p_39353_, inventory, containerLevelAccess);
+    public PortableCraftingMenu(int pContainerId, PlayerInventory pPlayerInventory, IWorldPosCallable pAccess) {
+        super(pContainerId, pPlayerInventory, pAccess);
     }
 
     @Override
-    public boolean stillValid(Player player) {
+    public boolean stillValid(PlayerEntity pPlayer) {
         return true;
     }
 }

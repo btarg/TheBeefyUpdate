@@ -2,10 +2,10 @@ package io.github.icrazyblaze.beefyupdate.util;
 
 import com.google.gson.JsonObject;
 import io.github.icrazyblaze.beefyupdate.init.ModItems;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.conditions.ILootCondition;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.common.loot.LootModifier;
 
@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CowLootModifier extends LootModifier {
 
-    protected CowLootModifier(LootItemCondition[] conditionsIn) {
+    protected CowLootModifier(ILootCondition[] conditionsIn) {
         super(conditionsIn);
     }
 
@@ -27,7 +27,7 @@ public class CowLootModifier extends LootModifier {
 
     public static class Serializer extends GlobalLootModifierSerializer<CowLootModifier> {
         @Override
-        public CowLootModifier read(ResourceLocation location, JsonObject object, LootItemCondition[] conditions) {
+        public CowLootModifier read(ResourceLocation location, JsonObject object, ILootCondition[] conditions) {
             return new CowLootModifier(conditions);
         }
 
@@ -36,5 +36,4 @@ public class CowLootModifier extends LootModifier {
             return this.makeConditions(instance.conditions);
         }
     }
-
 }

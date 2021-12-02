@@ -1,19 +1,20 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
 import com.google.common.primitives.Ints;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.List;
@@ -27,20 +28,22 @@ public class RedstoneBeefItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent("item.beefyupdate.redstone_beef.description").withStyle(ChatFormatting.DARK_PURPLE));
+    public void appendHoverText(@Nonnull ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, @Nonnull ITooltipFlag pFlag) {
+        pTooltip.add(new TranslationTextComponent("item.beefyupdate.redstone_beef.description").withStyle(TextFormatting.DARK_PURPLE));
     }
-
+    
+    @Nonnull
     @Override
-    public ItemStack finishUsingItem(ItemStack itemStack, Level level, LivingEntity livingEntity) {
+    public ItemStack finishUsingItem(@Nonnull ItemStack pStack, @Nonnull World pLevel, @Nonnull LivingEntity pEntityLiving) {
 
-        if (livingEntity instanceof ServerPlayer player) {
+        if (pEntityLiving instanceof ServerPlayerEntity) {
+            ServerPlayerEntity player = (ServerPlayerEntity) pEntityLiving;
 
-            Collection<MobEffectInstance> effects = player.getActiveEffects();
+            Collection<EffectInstance> effects = player.getActiveEffects();
 
             for (int i = 0; i < effects.size(); i++) {
                 // Get the current effect instance
-                MobEffectInstance e = (MobEffectInstance) effects.toArray()[i];
+                EffectInstance e = (EffectInstance) effects.toArray()[i];
 
                 int newDuration = e.getDuration();
                 int maxDuration = 12000;
@@ -51,17 +54,17 @@ public class RedstoneBeefItem extends Item {
                 }
 
                 // Get the same effect but with longer duration
-                MobEffectInstance newEffect = effect(e.getEffect(), newDuration, e.getAmplifier());
+                EffectInstance newEffect = effect(e.getEffect(), newDuration, e.getAmplifier());
                 // Remove the old effect and add the new one
                 player.removeEffect(e.getEffect());
                 player.addEffect(newEffect);
 
             }
-            level.playSound(null, player.blockPosition(), SoundEvents.BREWING_STAND_BREW, SoundSource.PLAYERS, 1.0F, 1.0F);
+            pLevel.playSound(null, player.blockPosition(), SoundEvents.BREWING_STAND_BREW, SoundCategory.PLAYERS, 1.0F, 1.0F);
             player.getCooldowns().addCooldown(this, 40);
         }
-        super.finishUsingItem(itemStack, level, livingEntity);
-        return itemStack;
+        super.finishUsingItem(pStack, pLevel, pEntityLiving);
+        return pStack;
     }
 
 }
