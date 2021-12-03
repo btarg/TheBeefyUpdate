@@ -1,13 +1,14 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -28,12 +29,12 @@ public class ItemWithDescription extends Item {
     }
 
     @Override
-    public boolean isFoil(ItemStack stack) {
+    public boolean isFoil(@Nonnull ItemStack pStack) {
         return this.foil;
     }
-
+    
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> components, TooltipFlag flag) {
-        components.add(new TranslatableComponent(description).withStyle(ChatFormatting.DARK_PURPLE));
+    public void appendHoverText(@Nonnull ItemStack pStack, @Nullable World pLevel, List<ITextComponent> pTooltip, @Nonnull ITooltipFlag pFlag) {
+        pTooltip.add(new TranslationTextComponent(description).withStyle(TextFormatting.DARK_PURPLE));
     }
 }

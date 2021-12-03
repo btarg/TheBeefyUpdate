@@ -1,8 +1,8 @@
 package io.github.icrazyblaze.beefyupdate.item;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipeType;
 
 public class CoalBeefItem extends Item {
 
@@ -11,8 +11,7 @@ public class CoalBeefItem extends Item {
     }
 
     @Override
-    public int getBurnTime(ItemStack itemStack, RecipeType<?> recipeType) {
+    public int getBurnTime(ItemStack itemStack, IRecipeType<?> recipeType) {
         return 800;
     }
-
 }

@@ -2,19 +2,14 @@ package io.github.icrazyblaze.beefyupdate.init;
 
 import io.github.icrazyblaze.beefyupdate.Main;
 import io.github.icrazyblaze.beefyupdate.item.*;
-import net.minecraft.world.food.Foods;
-import net.minecraft.world.item.ChorusFruitItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SpawnEggItem;
-import net.minecraftforge.fmllegacy.RegistryObject;
+import net.minecraft.item.*;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModItems {
-
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
-            Main.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
+    
     public static final RegistryObject<Item> RAINBOW_BEEF = ITEMS.register("rainbow_beef",
             () -> new ItemWithDescription(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.RAINBOW_BEEF).rarity(Rarity.EPIC), "item.beefyupdate.rainbow_beef.description", true));
     public static final RegistryObject<Item> COAL_BEEF = ITEMS.register("coal_beef",
