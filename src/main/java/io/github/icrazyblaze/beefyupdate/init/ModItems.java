@@ -43,6 +43,4 @@ public class ModItems {
     public static final RegistryObject<Item> STEAK_BUCKET = ITEMS.register("steak_bucket",
             () -> new SteakBucketItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_MUTTON).stacksTo(1).durability(1200)));
 
-    public static final RegistryObject<SpawnEggItem> BEEF_GOLEM_SPAWN_EGG = null;
-
 }
