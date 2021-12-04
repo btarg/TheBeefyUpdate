@@ -1,6 +1,5 @@
 package io.github.icrazyblaze.beefyupdate;
 
-import io.github.icrazyblaze.beefyupdate.entity.BeefGolemEntity;
 import io.github.icrazyblaze.beefyupdate.init.ModItems;
 import io.github.icrazyblaze.beefyupdate.util.ForgeEventSubscribers;
 import net.minecraft.item.Item;
