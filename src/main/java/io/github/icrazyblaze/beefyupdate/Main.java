@@ -40,8 +40,6 @@ public class Main {
         
         bus.register(ForgeEventSubscribers.class);
         ModItems.ITEMS.register(bus);
-
-        ENTITIES.register(bus);
         
         MinecraftForge.EVENT_BUS.register(this);
         ForgeEventSubscribers.GLM.register(bus); // Global loot modifiers
