@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[37,)"
+loaderVersion = "[39,)"
 license = "GNU LGPLv3"
 issueTrackerURL = "http://github.com/iCrazyBlaze/TheBeefyUpdate/issues"
 
@@ -10,19 +10,19 @@ displayName = "The Beefy Update"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/the-beefy-update"
 logoFile = "logo.png"
 credits = "Idea from MMD"
-authors = "RonaRage (iCrazyBlaze)"
+authors = "RonaRage (iCrazyBlaze/Btarg)"
 description = '''
 Adds fun new beef-related items that have unique effects.'''
 
 [[dependencies.beefyupdate]]
 modId = "forge"
 mandatory = true
-versionRange = "[37,)"
+versionRange = "[39,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.beefyupdate]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.17,1.18)"
+versionRange = "[1.18,1.19)"
 side = "BOTH"
