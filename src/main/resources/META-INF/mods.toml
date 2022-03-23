@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[39,)"
+loaderVersion = "[40,)"
 license = "GNU LGPLv3"
 issueTrackerURL = "http://github.com/iCrazyBlaze/TheBeefyUpdate/issues"
 
@@ -17,7 +17,7 @@ Adds fun new beef-related items that have unique effects.'''
 [[dependencies.beefyupdate]]
 modId = "forge"
 mandatory = true
-versionRange = "[39,)"
+versionRange = "[40,)"
 ordering = "NONE"
 side = "BOTH"
 

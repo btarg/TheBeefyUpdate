@@ -6,15 +6,13 @@ import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.ChorusFruitItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItems {
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS,
-            Main.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Main.MOD_ID);
     public static final RegistryObject<Item> RAINBOW_BEEF = ITEMS.register("rainbow_beef",
             () -> new ItemWithDescription(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.RAINBOW_BEEF).rarity(Rarity.EPIC), "item.beefyupdate.rainbow_beef.description", true));
     public static final RegistryObject<Item> COAL_BEEF = ITEMS.register("coal_beef",
@@ -47,7 +45,5 @@ public class ModItems {
             () -> new GlowstoneBeefItem(new Item.Properties().tab(Main.GROUP_FOOD).food(ModFoods.GLOWSTONE_BEEF)));
     public static final RegistryObject<Item> STEAK_BUCKET = ITEMS.register("steak_bucket",
             () -> new SteakBucketItem(new Item.Properties().tab(Main.GROUP_FOOD).food(Foods.COOKED_MUTTON).stacksTo(1).durability(1200)));
-
-    public static final RegistryObject<SpawnEggItem> BEEF_GOLEM_SPAWN_EGG = null;
 
 }
